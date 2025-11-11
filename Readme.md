@@ -59,26 +59,33 @@ Example:
   "EMAIL_SMTP_PORT": "465",
   "EMAIL_SUBJECT": "AdvancedLogAnalyzer Alert"
 }
+```
+
 
 ## 5. Installation and Setup
 
-Step 1: Clone the repository
- git clone https://github.com/<your-username>/AdvancedLogAnalyzer.git
-
+Step 1: Clone the repository 
+```bash
+git clone https://github.com/Lohith115/AdvancedLogAnalyzer.git
+```
+```bash
 cd AdvancedLogAnalyzer
+```
 
 Step 2: Create and activate virtual environment
-
+```bash
 python3 -m venv venv
 source venv/bin/activate
-
+```
 Step 4: Configure email and thresholds
 
 Edit config.json and update values as required.
 
 5. Usage
 Start the Analyzer
+```bash
 python3 main.py
+```
 
 The analyzer begins reading /var/log/auth.log and follows new log entries in real time.
 
@@ -87,15 +94,19 @@ To Test try to login with ssh from anothe device from the same network !!!
 When the threshold is reached, an alert email is sent and the IP is temporarily blocked.
 
 Verify Block Status:
-
+```bash
 sudo ipset list blocked_ips
+```
+```bash
 sudo tail -n 10 /var/log/advanced_log_analyzer_blocks.log
-
+```
 6. Auto Unblock
 
 Each blocked IP is automatically unblocked after the duration specified by BLOCK_TIMEOUT_SECONDS.
-Unblock events are logged in /var/log/advanced_log_analyzer_blocks.log.
-
+Unblock events are logged in
+```bash
+/var/log/advanced_log_analyzer_blocks.log.
+```
 7. Future Enhancements
 
 Integration with threat intelligence feeds for external IP enrichment
@@ -111,4 +122,4 @@ Containerization for deployment automation
 8. Author
 
 Developed by Lohith,
-M.Tech in Cybersecurity.
+ 
